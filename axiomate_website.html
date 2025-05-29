@@ -1,0 +1,145 @@
+<meta name='viewport' content='width=device-width, initial-scale=1'/><!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Axiomate Studio</title>
+  <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/3524/3524659.png" type="image/png">
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      overflow: hidden;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    body {
+      background: linear-gradient(270deg, #0f0f0f, #1a1a1a, #0f0f0f);
+      background-size: 600% 600%;
+      animation: gradientShift 15s ease infinite;
+      color: #ccff00;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      position: relative;
+    }
+
+    body::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-color: rgba(0, 0, 0, 0.6);
+      z-index: 0;
+    }
+
+    h1, p, .buttons {
+      position: relative;
+      z-index: 1;
+    }
+
+    h1 {
+      font-size: 3em;
+      margin-bottom: 0.3em;
+      text-shadow: 0 0 15px #aaff00;
+      animation: slideDown 1s ease-out;
+      transition: color 0.3s, text-shadow 0.3s;
+    }
+
+    h1:hover {
+      color: #ffffff;
+      text-shadow: 0 0 25px #ccff00, 0 0 10px #ccff00;
+    }
+
+    p {
+      font-size: 1.2em;
+      max-width: 600px;
+      margin-bottom: 2em;
+      color: #99ff00;
+      animation: fadeIn 2.5s ease-out;
+      transition: color 0.3s;
+    }
+
+    p:hover {
+      color: #ccff00;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      justify-content: center;
+      animation: fadeInUp 2s ease-out;
+    }
+
+    .btn {
+      padding: 12px 24px;
+      background-color: #ccff00;
+      color: #0f0f0f;
+      font-weight: bold;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s;
+    }
+
+    .btn:hover {
+      transform: scale(1.1) rotate(-1deg);
+      box-shadow: 0 0 20px #ccff00, inset 0 0 5px #0f0f0f;
+      background-color: #e6ff33;
+    }
+
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 2.2em;
+      }
+
+      p {
+        font-size: 1em;
+      }
+    }
+
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    @keyframes fadeIn {
+      0% { opacity: 0; }
+      100% { opacity: 1; }
+    }
+
+    @keyframes slideDown {
+      0% { transform: translateY(-50px); opacity: 0; }
+      100% { transform: translateY(0); opacity: 1; }
+    }
+
+    @keyframes fadeInUp {
+      0% { transform: translateY(30px); opacity: 0; }
+      100% { transform: translateY(0); opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+  <h1>Axiomate Studio</h1>
+  <p>Мы -- начинающая студия разработки игр. Поддержите наш путь и следите за новостями!</p>
+  <div class="buttons">
+    <a href="https://boosty.to/archiveofakkel/posts/df1d4489-2c34-4d3f-ae7e-2a0bda5cf90b?share=post_link" class="btn" target="_blank" onclick="playClick()">Поддержать</a>
+    <a href="https://t.me/axiomate" class="btn" target="_blank" onclick="playClick()">Телеграм</a>
+  </div>
+
+  <audio id="clickSound" src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_19e7d82db6.mp3?filename=click-124467.mp3" preload="auto"></audio>
+
+  <script>
+    function playClick() {
+      const audio = document.getElementById('clickSound');
+      audio.currentTime = 0;
+      audio.play();
+    }
+  </script>
+</body>
+</html>
